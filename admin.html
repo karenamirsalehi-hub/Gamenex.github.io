@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#07140D">
+<title>پنل مدیریت | Karenex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#07140D;--card:#10251A;--line:rgba(53,214,92,.16);--green:#35D65C;--ink:#06180d;--text:#E7EFE9;--muted:#91AA9A;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Vazirmatn","IRANSansX",Tahoma,sans-serif;font-size:16px;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 60px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar div{max-width:860px;margin:0 auto;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.logo{font-weight:800;font-size:24px;direction:ltr}.logo span{color:var(--green)}
+#actions{display:flex;gap:8px}#actions[hidden]{display:none}
+.logo small{font-size:13px;color:var(--muted);font-weight:600;margin-inline-start:8px;direction:rtl;display:inline-block}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:13px;border:1px solid var(--green);background:var(--green);color:var(--ink);font:700 15px "Vazirmatn",sans-serif;cursor:pointer}
+.btn.out{background:none;color:var(--green)}
+.btn.sm{min-height:36px;padding:0 14px;font-size:14px;border-radius:11px}
+.btn[disabled]{opacity:.55;cursor:wait}
+.btn:focus-visible,select:focus-visible,input:focus-visible,.chip:focus-visible,.tab:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px}
+.login{max-width:440px;margin:60px auto 0;padding:24px}
+.login h1{font-size:26px;margin:0 0 6px}
+.muted{color:var(--muted)}
+.field{margin:14px 0}.field label{display:block;font-weight:600;margin-bottom:4px}
+input[type=text],input[type=password],input[type=search],input[type=url]{width:100%;min-height:50px;padding:0 14px;border-radius:13px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit}
+input:focus{outline:2px solid var(--green);border-color:var(--green)}
+.ltr{direction:ltr;text-align:left}
+.err{color:#ffb4a8;min-height:1.7em;margin:6px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+@media(min-width:640px){.stats{grid-template-columns:repeat(6,1fr)}}
+.stat{padding:12px 4px;text-align:center}
+.stat b{display:block;font-size:20px;line-height:1.5;white-space:nowrap}
+.stat.money b{font-size:16px;line-height:1.85}
+.stat span{font-size:12.5px;color:var(--muted);line-height:1.5;display:block}
+@media(min-width:640px){.stat b{font-size:22px}.stat.money b{font-size:19px}}
+.tabs{display:flex;gap:8px;margin:6px 0 14px}
+.tab{flex:1;min-height:46px;border-radius:13px;border:1px solid var(--line);background:var(--card);color:var(--text);font:700 16px "Vazirmatn",sans-serif;cursor:pointer}
+.tab[aria-selected=true]{border-color:var(--green);color:var(--green);background:rgba(53,214,92,.09)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.tools input{flex:1;min-width:180px}
+.chips[hidden]{display:none}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
+.chip{flex:none;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--muted);font:600 14px "Vazirmatn",sans-serif;cursor:pointer}
+.chip[aria-pressed=true]{border-color:var(--green);color:var(--green);background:rgba(53,214,92,.09)}
+.list{display:grid;gap:12px}
+.item{padding:16px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.top b{direction:ltr;text-align:right;font-size:17px;line-height:1.5}
+.price{color:var(--green);font-weight:800;white-space:nowrap}
+.sub{direction:ltr;text-align:right;color:var(--muted);font-size:14px;margin-bottom:8px}
+.kv{list-style:none;margin:8px 0 12px;padding:0;display:grid;gap:2px}
+.kv li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding:4px 0;font-size:15px}
+.kv li span:last-child{font-weight:600;text-align:left;word-break:break-all}
+.kv a{color:var(--text)}
+.bot{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+select{min-height:40px;padding:0 10px;border-radius:11px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:600 14px "Vazirmatn",sans-serif}
+.badge{display:inline-block;padding:0 10px;border-radius:999px;border:1px solid currentColor;font-size:13px;font-weight:700;white-space:nowrap}
+.id{margin-inline-start:auto;font-size:12px;color:var(--muted);direction:ltr}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+.toast{position:fixed;inset-inline:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:420px;margin:0 auto;padding:12px 16px;border-radius:14px;background:#2a1a17;border:1px solid #ffb4a8;color:#ffd7d0;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:20}
+.toast.ok{background:#102d1a;border-color:var(--green);color:var(--text)}
+.toast.show{opacity:1;visibility:visible}
+@media(prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+</head>
+<body>
+<header class="bar"><div>
+  <span class="logo">Karen<span>ex</span><small>پنل مدیریت</small></span>
+  <span id="actions" hidden>
+    <button class="btn out sm" type="button" id="refresh">به‌روزرسانی</button>
+    <button class="btn out sm" type="button" id="logout">خروج</button>
+  </span>
+</div></header>
+
+<div class="wrap">
+  <section class="card login" id="login">
+    <h1>ورود به پنل</h1>
+    <p class="muted" style="margin:0 0 6px">رمزی که توی فایل Code.gs گذاشتی رو وارد کن.</p>
+    <div class="field" id="urlf" hidden><label for="url">آدرس سرور (وب‌اپ Google Apps Script)</label><input id="url" class="ltr" type="url" placeholder="https://script.google.com/macros/s/.../exec" autocomplete="off"></div>
+    <div class="field"><label for="key">رمز</label><input id="key" type="password" autocomplete="current-password"></div>
+    <p class="err" id="lerr" role="status" aria-live="polite"></p>
+    <button class="btn" type="button" id="enter" style="width:100%">ورود</button>
+  </section>
+
+  <section id="app" hidden>
+    <div class="stats" id="stats"></div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" type="button" id="t-orders" aria-selected="true">سفارش‌ها</button>
+      <button class="tab" role="tab" type="button" id="t-users" aria-selected="false">ثبت‌نام‌شده‌ها</button>
+    </div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="جستجو در نام، شماره، ایمیل..." aria-label="جستجو">
+      <button class="btn out sm" type="button" id="csv">دانلود CSV</button>
+    </div>
+    <div class="chips" id="chips" hidden></div>
+    <div class="list" id="list"></div>
+  </section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var PANEL_URL=''; // می‌تونی آدرس سرور رو اینجا هم بذاری؛ خالی باشه، اولین بار ازت می‌پرسه و تو همین مرورگر یادش می‌مونه
+  var $=function(i){return document.getElementById(i)};
+  var ST={
+    'new':['در انتظار پرداخت','#f5c451'],
+    paid:['پرداخت‌شده','#35D65C'],
+    delivered:['تحویل داده شد','#6fb6ff'],
+    cancelled:['لغو / بازگشت وجه','#ff8d7a']
+  };
+  var ORDER=['new','paid','delivered','cancelled'];
+  function lsGet(k){try{return localStorage.getItem(k)||'';}catch(_){return '';}}
+  function lsSet(k,v){try{localStorage.setItem(k,v);}catch(_){}}
+  function ssGet(k){try{return sessionStorage.getItem(k)||'';}catch(_){return '';}}
+  function ssSet(k,v){try{if(v)sessionStorage.setItem(k,v);else sessionStorage.removeItem(k);}catch(_){}}
+  var url=PANEL_URL||lsGet('karenex_panel_url'),key=ssGet('karenex_admin_key');
+  var data={users:[],orders:[]},tab='orders',filter='all',timer=0,busy=false;
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function money(n){var v=Number(n);return (isFinite(v)?v:0).toLocaleString('en-US');}
+  function when(iso){var d=new Date(iso);if(isNaN(d))return esc(iso);try{return d.toLocaleString('fa-IR',{timeZone:'Asia/Tehran',dateStyle:'medium',timeStyle:'short'});}catch(_){return d.toLocaleString();}}
+  var tt=0;
+  function toast(t,ok){var el=$('toast');el.textContent=t;el.className='toast show'+(ok?' ok':'');clearTimeout(tt);tt=setTimeout(function(){el.classList.remove('show');},3200);}
+
+  function api(body){
+    return fetch(url,{method:'POST',body:JSON.stringify(body)}).then(function(r){return r.json();});
+  }
+
+  /* ---------- ورود ---------- */
+  function showLogin(msg){
+    $('login').hidden=false;$('app').hidden=true;$('actions').hidden=true;
+    $('urlf').hidden=!!PANEL_URL;$('url').value=url;$('lerr').textContent=msg||'';
+    clearInterval(timer);
+  }
+  function showApp(){$('login').hidden=true;$('app').hidden=false;$('actions').hidden=false;}
+  $('enter').addEventListener('click',function(){
+    var u=PANEL_URL||$('url').value.trim(),k=$('key').value;
+    if(!/^https:\/\//.test(u))return ($('lerr').textContent='آدرس سرور رو درست وارد کن.');
+    if(!k)return ($('lerr').textContent='رمز رو وارد کن.');
+    url=u;key=k;$('lerr').textContent='';
+    var b=this;b.disabled=true;
+    load(true).then(function(ok){
+      b.disabled=false;
+      if(ok){lsSet('karenex_panel_url',url);ssSet('karenex_admin_key',key);$('key').value='';showApp();render();timer=setInterval(function(){if(!document.hidden)load(false);},60000);}
+    });
+  });
+  $('key').addEventListener('keydown',function(e){if(e.key==='Enter')$('enter').click();});
+  $('logout').addEventListener('click',function(){key='';ssSet('karenex_admin_key','');data={users:[],orders:[]};showLogin('');});
+
+  function load(fromLogin){
+    if(busy)return Promise.resolve(false);busy=true;
+    return api({action:'list',key:key}).then(function(d){
+      busy=false;
+      if(!d||!d.ok){
+        if(fromLogin){$('lerr').textContent=(d&&d.error)||'ورود انجام نشد.';}
+        else{key='';ssSet('karenex_admin_key','');showLogin((d&&d.error)||'دوباره وارد شو.');}
+        return false;
+      }
+      data.users=d.users||[];data.orders=d.orders||[];render();return true;
+    }).catch(function(){
+      busy=false;
+      if(fromLogin)$('lerr').textContent='به سرور وصل نشد. آدرس رو چک کن و مطمئن شو دسترسی وب‌اپ روی «Anyone» هست.';
+      else toast('اتصال به سرور برقرار نشد.');
+      return false;
+    });
+  }
+  $('refresh').addEventListener('click',function(){var b=this;b.disabled=true;load(false).then(function(ok){b.disabled=false;if(ok)toast('به‌روز شد',true);});});
+
+  /* ---------- نمایش ---------- */
+  function stats(){
+    var o=data.orders,c={'new':0,paid:0,delivered:0,cancelled:0},sum=0;
+    o.forEach(function(x){if(c[x.status]!==undefined)c[x.status]++;if(x.status==='paid'||x.status==='delivered')sum+=Number(x.price)||0;});
+    var cells=[[o.length,'کل سفارش‌ها'],[c['new'],'در انتظار پرداخت'],[c.paid,'پرداخت‌شده'],[c.delivered,'تحویل‌شده'],[data.users.length,'ثبت‌نام‌شده'],[money(sum),'فروش (تومان)']];
+    $('stats').innerHTML=cells.map(function(x,i){return '<div class="card stat'+(i===5?' money':'')+'"><b>'+esc(x[0])+'</b><span>'+x[1]+'</span></div>';}).join('');
+  }
+  function match(obj,q){if(!q)return true;return Object.keys(obj).some(function(k){return String(obj[k]).toLowerCase().indexOf(q)>-1;});}
+  function chips(){
+    var el=$('chips');el.hidden=tab!=='orders';if(tab!=='orders')return;
+    var all=[['all','همه']].concat(ORDER.map(function(k){return [k,ST[k][0]];}));
+    el.innerHTML=all.map(function(x){return '<button class="chip" type="button" data-f="'+x[0]+'" aria-pressed="'+(filter===x[0])+'">'+x[1]+'</button>';}).join('');
+  }
+  function orderCard(o){
+    var s=ST[o.status]||ST['new'],opts=ORDER.map(function(k){return '<option value="'+k+'"'+(k===o.status?' selected':'')+'>'+ST[k][0]+'</option>';}).join('');
+    return '<article class="card item"><div class="top"><b>'+esc(o.game)+'</b><span class="price">'+money(o.price)+' تومان</span></div>'+
+      '<div class="sub">'+esc(o.console)+' · '+esc(o.plan)+'</div>'+
+      '<ul class="kv"><li><span>نام</span><span>'+esc(o.name)+'</span></li>'+
+      '<li><span>تلفن</span><span dir="ltr"><a href="tel:'+esc(o.phone)+'">'+esc(o.phone)+'</a></span></li>'+
+      '<li><span>ایمیل</span><span dir="ltr">'+esc(o.email)+'</span></li>'+
+      '<li><span>روش پرداخت</span><span>'+esc(o.method)+'</span></li>'+
+      '<li><span>زمان ثبت</span><span>'+when(o.time)+'</span></li></ul>'+
+      '<div class="bot"><span class="badge" style="color:'+s[1]+'">'+s[0]+'</span>'+
+      '<select data-id="'+esc(o.id)+'" aria-label="تغییر وضعیت سفارش">'+opts+'</select>'+
+      '<button class="btn out sm" type="button" data-copy="'+esc(o.id)+'">کپی اطلاعات</button>'+
+      '<span class="id">'+esc(o.id)+'</span></div></article>';
+  }
+  function userCard(u){
+    var n=data.orders.filter(function(o){return o.phone===u.phone;}).length;
+    return '<article class="card item"><div class="top"><b style="direction:rtl">'+esc(u.name)+'</b><span class="badge" style="color:'+(u.verified==='yes'?'#35D65C':'#f5c451')+'">'+(u.verified==='yes'?'تأیید شده':'تأیید نشده')+'</span></div>'+
+      '<ul class="kv"><li><span>تلفن</span><span dir="ltr"><a href="tel:'+esc(u.phone)+'">'+esc(u.phone)+'</a></span></li>'+
+      '<li><span>ایمیل</span><span dir="ltr">'+esc(u.email)+'</span></li>'+
+      '<li><span>زمان ثبت‌نام</span><span>'+when(u.time)+'</span></li>'+
+      '<li><span>تعداد سفارش</span><span>'+n+'</span></li></ul>'+
+      '<div class="bot">'+(n?'<button class="btn out sm" type="button" data-orders="'+esc(u.phone)+'">دیدن سفارش‌ها</button>':'')+'</div></article>';
+  }
+  function render(){
+    stats();chips();
+    var q=$('q').value.trim().toLowerCase(),html='',n=0;
+    if(tab==='orders'){
+      data.orders.forEach(function(o){if((filter==='all'||o.status===filter)&&match(o,q)){html+=orderCard(o);n++;}});
+      if(!n)html='<div class="empty">'+(data.orders.length?'سفارشی با این فیلتر پیدا نشد.':'هنوز سفارشی ثبت نشده.')+'</div>';
+    }else{
+      data.users.forEach(function(u){if(match(u,q)){html+=userCard(u);n++;}});
+      if(!n)html='<div class="empty">'+(data.users.length?'نتیجه‌ای پیدا نشد.':'هنوز کسی ثبت‌نام نکرده.')+'</div>';
+    }
+    $('list').innerHTML=html;
+  }
+  function setTab(t){
+    tab=t;$('t-orders').setAttribute('aria-selected',t==='orders');$('t-users').setAttribute('aria-selected',t==='users');render();
+  }
+  $('t-orders').addEventListener('click',function(){setTab('orders');});
+  $('t-users').addEventListener('click',function(){setTab('users');});
+  $('q').addEventListener('input',render);
+  $('chips').addEventListener('click',function(e){var b=e.target.closest('button[data-f]');if(!b)return;filter=b.getAttribute('data-f');render();});
+
+  $('list').addEventListener('change',function(e){
+    var s=e.target.closest('select[data-id]');if(!s)return;
+    var id=s.getAttribute('data-id'),o=data.orders.filter(function(x){return x.id===id;})[0];if(!o)return;
+    var old=o.status,nv=s.value;o.status=nv;render();
+    api({action:'setStatus',key:key,id:id,status:nv}).then(function(d){
+      if(!d||!d.ok){o.status=old;render();toast((d&&d.error)||'تغییر وضعیت ذخیره نشد.');}
+      else toast('وضعیت ذخیره شد',true);
+    }).catch(function(){o.status=old;render();toast('اتصال به سرور برقرار نشد.');});
+  });
+  $('list').addEventListener('click',function(e){
+    var c=e.target.closest('button[data-copy]'),u=e.target.closest('button[data-orders]');
+    if(u){$('q').value=u.getAttribute('data-orders');filter='all';setTab('orders');return;}
+    if(!c)return;
+    var id=c.getAttribute('data-copy'),o=data.orders.filter(function(x){return x.id===id;})[0];if(!o)return;
+    var t='بازی: '+o.game+'\nکنسول: '+o.console+'\nانتخاب: '+o.plan+'\nمبلغ: '+money(o.price)+' تومان\nنام: '+o.name+'\nتلفن: '+o.phone+'\nایمیل: '+o.email+'\nشناسه: '+o.id;
+    function ok(){toast('کپی شد',true);}
+    function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(_){toast('کپی نشد.');}document.body.removeChild(a);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fb);}else fb();
+  });
+
+  /* ---------- CSV ---------- */
+  $('csv').addEventListener('click',function(){
+    var rows=tab==='orders'?data.orders:data.users;
+    if(!rows.length)return toast('چیزی برای دانلود نیست.');
+    var cols=tab==='orders'?['id','time','game','console','plan','price','method','name','phone','email','status']:['id','time','name','phone','email','verified'];
+    function cell(v){v=String(v==null?'':v);if(/^[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"';}
+    var csv='\ufeff'+cols.join(',')+'\n'+rows.map(function(r){return cols.map(function(c){return cell(r[c]);}).join(',');}).join('\n');
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+    a.download='karenex-'+tab+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
+  });
+
+  /* ---------- شروع ---------- */
+  if(url&&key){
+    load(true).then(function(ok){if(ok){showApp();render();timer=setInterval(function(){if(!document.hidden)load(false);},60000);}else showLogin($('lerr').textContent);});
+  }else showLogin('');
+})();
+</script>
+</body>
+</html>
